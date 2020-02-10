@@ -1,12 +1,12 @@
 ---
-title: Using GraphQL Fragments
+title: GraphQL Fragmentsの利用
 ---
 
-Fragments allow you to reuse parts of GraphQL queries. It also allows you to split up complex queries into smaller, easier to understand components.
+Fragments を使用すると、GraphQL クエリの一部を再利用できます。また、複雑なクエリをより小さく、理解しやすい要素に分割することもできます。
 
-## The building blocks of a fragment
+## fragment の構成要素
 
-Here is an example fragment:
+fragment の例を次に示します：
 
 ```graphql
 fragment FragmentName on TypeName {
@@ -15,15 +15,16 @@ fragment FragmentName on TypeName {
 }
 ```
 
-A fragment consists of three components:
+fragment は、3 つの要素で構成されます：
 
-1. `FragmentName`: the name of the fragment that will be referenced later.
-2. `TypeName`: the [GraphQL type](https://graphql.org/graphql-js/object-types/) of the object the fragment will be used on. This is important because you can only query for fields that actually exist on a given object.
-3. The body of the query. You can define any fields with any level of nesting in here, the same that you would elsewhere in a GraphQL query
+1. `FragmentName`: 後で参照される fragment の名前。
+1. `TypeName`: the [GraphQL type](https://graphql.org/graphql-js/object-types/) of the object the fragment will be used on. This is important because you can only query for fields that actually exist on a given object.
+1. `TypeName`: fragment が使用されるオブジェクトの [GraphQL type](https://graphql.org/graphql-js/object-types/)。特定のオブジェクトに実際に存在するフィールドのみを照会できるため、これは重要です。
+1. クエリの本文。ここでは、GraphQL クエリの他の場所と同じように、任意のレベルのネストを持つ任意のフィールドを定義できます。
 
-## Creating and using a fragment
+## fragment の作成と利用
 
-A fragment can be created inside any GraphQL query, but it's good practice to create the query separately. More organization advice in the [Conceptual Guide](/docs/graphql-concepts/#fragments).
+fragment はどの GraphQL クエリ内にも作成できますが、おすすめは個別にクエリを作成することです。構成に関するその他のアドバイスは[Conceptual Guide](/docs/graphql-concepts/#fragments)をご覧ください。
 
 ```jsx:title=src/components/IndexPost.jsx
 import React from "react"
@@ -44,6 +45,7 @@ export const query = graphql`
 ```
 
 This defines a fragment named `SiteInformation`. Now it can be used from within the page's GraphQL query:
+これは `SiteInformation` という名前の fragment を定義します。これで、ページの GraphQL クエリ内から使用できるようになりました。
 
 ```jsx:title=src/pages/main.jsx
 import React from "react"
